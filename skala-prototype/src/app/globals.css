@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --skala-navy: #083350;
+  --skala-navy-mid: #0d4a72;
+  --skala-teal: #00797b;
+  --skala-teal-dark: #005e60;
+  --skala-teal-soft: #e6f4f4;
+  --skala-gold: #b45309;
+  --skala-bg: #f8fafc;
+  --skala-surface: #ffffff;
+  --skala-text: #0f172a;
+  --skala-muted: #475569;
+  --skala-border: #cbd5e1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--skala-bg);
+  color: var(--skala-text);
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Native WCAG 2.2 AA Focus Indicators (2.4.7 & 2.4.11 Focus Appearance) */
+:focus-visible {
+  outline: 3px solid #00797b;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Native High-Contrast Mode (WCAG 2.2 AAA/AA) */
+html.high-contrast {
+  --skala-bg: #000000;
+  --skala-surface: #0a0a0a;
+  --skala-text: #ffffff;
+  --skala-muted: #e2e8f0;
+  --skala-border: #facc15;
+}
+
+html.high-contrast body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast .hc-surface {
+  background-color: #0a0a0a !important;
+  color: #ffffff !important;
+  border-color: #facc15 !important;
+}
+
+html.high-contrast .hc-muted {
+  color: #e2e8f0 !important;
+}
+
+html.high-contrast .hc-accent {
+  background-color: #facc15 !important;
+  color: #000000 !important;
+  border-color: #facc15 !important;
+}
+
+html.high-contrast a:focus-visible,
+html.high-contrast button:focus-visible,
+html.high-contrast input:focus-visible,
+html.high-contrast select:focus-visible {
+  outline: 3px solid #facc15 !important;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 16px;
+  z-index: 100;
+  background: #facc15;
+  color: #000000;
+  padding: 10px 16px;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
