@@ -530,15 +530,25 @@ export function SkalaPortal({ initialLocale = "en" }: { initialLocale?: Locale }
           {/* Hero Section */}
           <section
             id="about"
-            className="relative overflow-hidden bg-gradient-to-br from-[#083350] via-[#0b4266] to-[#083350] text-white py-10 sm:py-14 border-b-4 border-[#00A9A3]"
+            className="relative overflow-hidden bg-gradient-to-br from-[#062840] via-[#083350] to-[#0b476b] text-white py-10 sm:py-14 border-b-4 border-[#00A9A3]"
           >
-            {/* Subtle authentic hero photography backdrop from skala.or.id */}
-            <img
-              src="/images/hero-banner-en.jpg"
-              alt=""
+            {/* Clean SKALA dotted-arc brand motif & soft ambient glow (zero baked-in text) */}
+            <div
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity pointer-events-none"
-            />
+              className="pointer-events-none absolute inset-0 overflow-hidden"
+            >
+              <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#00A9A3]/20 blur-3xl" />
+              <div className="absolute left-1/3 -bottom-32 w-80 h-80 rounded-full bg-[#0ea5e9]/10 blur-3xl" />
+              <svg
+                className="absolute right-0 top-0 h-full w-1/2 opacity-15"
+                viewBox="0 0 400 300"
+                fill="none"
+              >
+                <circle cx="340" cy="150" r="180" stroke="#00A9A3" strokeWidth="1.5" strokeDasharray="4 8" />
+                <circle cx="340" cy="150" r="135" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 7" />
+                <circle cx="340" cy="150" r="90" stroke="#00A9A3" strokeWidth="1.5" strokeDasharray="2 6" />
+              </svg>
+            </div>
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div
                 className={
