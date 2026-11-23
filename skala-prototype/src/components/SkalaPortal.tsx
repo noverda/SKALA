@@ -36,6 +36,7 @@ import {
   GLOSSARY_ENTRIES,
   CAREERS,
   PROCUREMENTS,
+  PARTNER_LOGOS,
 } from "@/data/skalaData";
 import { UI_COPY } from "@/data/translations";
 import { IndonesiaMap } from "./IndonesiaMap";
@@ -422,17 +423,14 @@ export function SkalaPortal({ initialLocale = "en" }: { initialLocale?: Locale }
         <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-xs border-b border-slate-200 hc-surface">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
             <a href="#" className="flex items-center gap-3 shrink-0">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#083350] to-[#00797b] flex items-center justify-center text-white font-black text-lg shadow-sm">
-                S
-              </div>
-              <div>
-                <div className="text-xl font-black tracking-tight text-[#083350] leading-none hc-surface">
-                  SKALA
-                </div>
-                <div className="text-[11px] font-semibold text-[#00797b] leading-tight mt-0.5">
-                  {t.brandTagline}
-                </div>
-              </div>
+              <img
+                src="/images/skala-logo.png"
+                alt="SKALA — Sinergi dan Kolaborasi untuk Akselerasi Layanan Dasar"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="hidden sm:inline-block border-l border-slate-300 pl-3 text-[11px] font-semibold text-[#00797b] leading-tight">
+                {t.brandTagline}
+              </span>
             </a>
 
             {/* Desktop Nav */}
@@ -532,9 +530,16 @@ export function SkalaPortal({ initialLocale = "en" }: { initialLocale?: Locale }
           {/* Hero Section */}
           <section
             id="about"
-            className="bg-gradient-to-br from-[#083350] via-[#0b4266] to-[#083350] text-white py-10 sm:py-14 border-b-4 border-[#00797b]"
+            className="relative overflow-hidden bg-gradient-to-br from-[#083350] via-[#0b4266] to-[#083350] text-white py-10 sm:py-14 border-b-4 border-[#00A9A3]"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Subtle authentic hero photography backdrop from skala.or.id */}
+            <img
+              src="/images/hero-banner-en.jpg"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity pointer-events-none"
+            />
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div
                 className={
                   mobilePreviewFrame
@@ -814,27 +819,40 @@ export function SkalaPortal({ initialLocale = "en" }: { initialLocale?: Locale }
                         return (
                           <article
                             key={pub.id}
-                            className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col justify-between shadow-xs hover:border-[#00797b] transition-colors hc-surface"
+                            className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col justify-between shadow-xs hover:border-[#00A9A3] transition-colors hc-surface"
                           >
-                            <div>
-                              <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wide bg-[#e6f4f4] text-[#005e60]">
-                                  {t.repo.types[pub.type]} • {pub.year}
-                                </span>
-                                <span className="text-[11px] font-mono font-semibold text-slate-500">
-                                  {pub.skalaOneId}
-                                </span>
+                            <div className="flex gap-4">
+                              {/* Official Publication Cover Thumbnail */}
+                              <div className="w-24 sm:w-28 shrink-0">
+                                <div className="aspect-[3/4] rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xs">
+                                  <img
+                                    src={pub.coverImage[locale]}
+                                    alt={pub.coverAlt[locale]}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
                               </div>
 
-                              <h3 className="text-lg font-bold text-[#083350] leading-snug hc-surface">
-                                {pub.title[locale]}
-                              </h3>
-                              <p className="text-xs font-semibold text-[#00797b] mt-1">
-                                {pub.provinceLabel[locale]} • {pub.translationStatus}
-                              </p>
-                              <p className="text-sm text-slate-600 hc-muted mt-2.5 line-clamp-3">
-                                {pub.summary[locale]}
-                              </p>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wide bg-[#e6f4f4] text-[#005e60]">
+                                    {t.repo.types[pub.type]} • {pub.year}
+                                  </span>
+                                  <span className="text-[11px] font-mono font-semibold text-slate-500">
+                                    {pub.skalaOneId}
+                                  </span>
+                                </div>
+
+                                <h3 className="text-base sm:text-lg font-bold text-[#083350] leading-snug hc-surface">
+                                  {pub.title[locale]}
+                                </h3>
+                                <p className="text-xs font-semibold text-[#00797b] mt-1">
+                                  {pub.provinceLabel[locale]} • {pub.translationStatus}
+                                </p>
+                                <p className="text-xs sm:text-sm text-slate-600 hc-muted mt-2 line-clamp-3">
+                                  {pub.summary[locale]}
+                                </p>
+                              </div>
                             </div>
 
                             <div className="mt-5 pt-3.5 border-t border-slate-100 flex flex-wrap items-center gap-2">
@@ -989,31 +1007,48 @@ export function SkalaPortal({ initialLocale = "en" }: { initialLocale?: Locale }
                 className={
                   mobilePreviewFrame
                     ? "grid grid-cols-1 gap-4"
-                    : "grid grid-cols-1 md:grid-cols-3 gap-5"
+                    : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
                 }
               >
                 {NEWS_ITEMS.map((item) => (
                   <article
                     key={item.id}
-                    className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col justify-between hc-surface"
+                    className="rounded-2xl border border-slate-200 bg-white overflow-hidden flex flex-col justify-between hc-surface shadow-xs hover:border-[#00A9A3] transition-colors"
                   >
                     <div>
-                      <div className="flex items-center justify-between text-xs font-semibold text-[#00797b] mb-2">
-                        <span>{item.category[locale]}</span>
-                        <time dateTime={item.date} className="text-slate-500">
-                          {item.date}
-                        </time>
+                      <div className="aspect-[16/10] w-full bg-slate-100 overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.imageAlt[locale]}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <h3 className="text-base font-bold text-[#083350] hc-surface leading-snug">
-                        {item.title[locale]}
-                      </h3>
-                      <p className="text-sm text-slate-600 hc-muted mt-2">
-                        {item.excerpt[locale]}
-                      </p>
+                      <div className="p-5 pb-3">
+                        <div className="flex items-center justify-between text-xs font-semibold text-[#00797b] mb-2">
+                          <span>{item.category[locale]}</span>
+                          <time dateTime={item.date} className="text-slate-500">
+                            {item.date}
+                          </time>
+                        </div>
+                        <h3 className="text-base font-bold text-[#083350] hc-surface leading-snug">
+                          {item.title[locale]}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 hc-muted mt-2 line-clamp-3">
+                          {item.excerpt[locale]}
+                        </p>
+                      </div>
                     </div>
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                      <span>{item.province}</span>
-                      <span>{item.readTime}</span>
+                    <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">{item.province}</span>
+                      <a
+                        href={item.sourceUrl[locale]}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 font-bold text-[#00797b] hover:underline"
+                      >
+                        skala.or.id
+                        <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                      </a>
                     </div>
                   </article>
                 ))}
@@ -1365,14 +1400,36 @@ export function SkalaPortal({ initialLocale = "en" }: { initialLocale?: Locale }
         </main>
 
         {/* Footer */}
-        <footer className="bg-[#083350] text-white py-8 border-t-4 border-[#00797b]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+        <footer className="bg-[#083350] text-white py-10 border-t-4 border-[#00A9A3]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            {/* Official Co-Branding Logos Strip (from skala.or.id) */}
+            <div className="rounded-2xl bg-white p-4 sm:p-5 flex flex-wrap items-center justify-between gap-6">
+              <img
+                src="/images/skala-logo.png"
+                alt="SKALA"
+                className="h-9 w-auto object-contain"
+              />
+              <div className="flex flex-wrap items-center gap-5 sm:gap-7">
+                {PARTNER_LOGOS.map((logo) => (
+                  <img
+                    key={logo.name}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-8 sm:h-10 w-auto object-contain"
+                  />
+                ))}
+              </div>
+            </div>
+
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="text-sm font-bold text-teal-200">
                   {t.footer.cobranding}
                 </div>
-                <p className="text-xs text-slate-300 mt-1">{t.footer.implementedBy}</p>
+                <p className="text-xs text-slate-300 mt-1">
+                  IFC Tower 2, Level 17, Jl. Jenderal Sudirman Kav. 22-23, Jakarta 12920 • info@skala.or.id
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5">{t.footer.implementedBy}</p>
               </div>
               <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
                 <button

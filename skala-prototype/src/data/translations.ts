@@ -247,7 +247,7 @@ export const UI_COPY: Record<
       contactSentMsg: "Your inquiry passed validation & sanitisation and was logged for the SKALA KM team.",
     },
     footer: {
-      cobranding: "Co-Branding: Australian Aid  |  Bappenas / Government of Indonesia  |  SKALA",
+      cobranding: "Co-Branding: Australian Aid  |  Bappenas, Kemendagri & Kemenkeu  |  SKALA",
       implementedBy: "Supported by the Australian Government and implemented by DT Global • Proposed by PT Inovasi Digital Terdepan",
       privacy: "Privacy Policy (UU PDP 27/2022)",
       accessibility: "Accessibility Statement (WCAG 2.2 AA)",
@@ -392,7 +392,7 @@ export const UI_COPY: Record<
       contactSentMsg: "Pesan Anda lolos validasi & sanitasi dan telah dicatat untuk tim KM SKALA.",
     },
     footer: {
-      cobranding: "Identitas Bersama: Australian Aid  |  Bappenas / Pemerintah Indonesia  |  SKALA",
+      cobranding: "Identitas Bersama: Australian Aid  |  Bappenas, Kemendagri & Kemenkeu  |  SKALA",
       implementedBy: "Didukung oleh Pemerintah Australia dan diimplementasikan oleh DT Global • Diusulkan oleh PT Inovasi Digital Terdepan",
       privacy: "Kebijakan Privasi (UU PDP 27/2022)",
       accessibility: "Pernyataan Aksesibilitas (WCAG 2.2 AA)",

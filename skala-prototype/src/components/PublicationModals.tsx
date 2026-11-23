@@ -153,22 +153,43 @@ export function PublicationModal({
                   </span>
                 </div>
                 {page === 1 ? (
-                  <>
-                    <h4 className="text-base font-bold text-[#083350] hc-surface">
-                      {locale === "en" ? "Executive Summary" : "Ringkasan Eksekutif"}
-                    </h4>
-                    <p className="text-sm text-slate-700 hc-muted leading-relaxed">
-                      {publication.summary[locale]}
-                    </p>
-                    <h5 className="text-sm font-bold text-[#083350] hc-surface pt-2">
-                      {locale === "en" ? "Key Evidence & Recommendations" : "Temuan Utama & Rekomendasi"}
-                    </h5>
-                    <ul className="list-disc pl-5 space-y-2 text-sm text-slate-700 hc-muted">
-                      {publication.keyFindings[locale].map((f) => (
-                        <li key={f}>{f}</li>
-                      ))}
-                    </ul>
-                  </>
+                  <div className="flex flex-col sm:flex-row gap-5 items-start">
+                    <div className="w-32 sm:w-36 shrink-0 rounded-lg overflow-hidden border border-slate-200 shadow-xs">
+                      <img
+                        src={publication.coverImage[locale]}
+                        alt={publication.coverAlt[locale]}
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                    <div className="space-y-3 flex-1">
+                      <h4 className="text-base font-bold text-[#083350] hc-surface">
+                        {locale === "en" ? "Executive Summary" : "Ringkasan Eksekutif"}
+                      </h4>
+                      <p className="text-sm text-slate-700 hc-muted leading-relaxed">
+                        {publication.summary[locale]}
+                      </p>
+                      <h5 className="text-sm font-bold text-[#083350] hc-surface pt-1">
+                        {locale === "en" ? "Key Evidence & Recommendations" : "Temuan Utama & Rekomendasi"}
+                      </h5>
+                      <ul className="list-disc pl-5 space-y-1.5 text-sm text-slate-700 hc-muted">
+                        {publication.keyFindings[locale].map((f) => (
+                          <li key={f}>{f}</li>
+                        ))}
+                      </ul>
+                      <div className="pt-2">
+                        <a
+                          href={publication.sourceUrl[locale]}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xs font-bold text-[#00797b] hover:underline"
+                        >
+                          {locale === "en"
+                            ? "View original record on skala.or.id →"
+                            : "Lihat halaman asli di skala.or.id →"}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div className="space-y-3 text-sm text-slate-700 hc-muted">
                     <h4 className="text-base font-bold text-[#083350] hc-surface">

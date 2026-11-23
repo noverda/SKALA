@@ -54,8 +54,10 @@ export async function GET(request: NextRequest) {
         summary: p.summary,
         tags: p.tags,
         downloads: p.downloads,
+        coverImage: p.coverImage,
+        sourceUrl: p.sourceUrl,
         canonicalUrlEn: `https://skala.or.id/en/publications/${p.slug}`,
-        canonicalUrlId: `https://skala.or.id/id/publikasi/${p.slug}`,
+        canonicalUrlId: `https://skala.or.id/publikasi/${p.slug}`,
       })),
     },
     {

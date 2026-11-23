@@ -53,7 +53,7 @@ export function ArchitectureDrawer({
   const runSyncSimulation = () => {
     const now = new Date().toISOString();
     setSyncLog(
-      `[${now}] SKALA One Pull Sync OK • Master taxonomy unchanged • 6 canonical publications verified (zero duplicate IDs) • Meilisearch index refreshed in 14ms.`
+      `[${now}] SKALA One Pull Sync OK • Master taxonomy unchanged • 8 canonical publications verified (zero duplicate IDs) • Meilisearch index refreshed in 14ms.`
     );
   };
 
